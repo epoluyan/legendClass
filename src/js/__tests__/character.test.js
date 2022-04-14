@@ -1,8 +1,11 @@
-import Character from '../characterClass';
+import Bowerman from '../bowermanClass';
+import Magician from '../magicianClass';
+import Zombie from '../zombieClass';
 
 
 test('should get character Bowman', () => {
-  const bowman = new Character('name', 'Bowerman');
+  const bowman = new Bowerman('name', 'Bowerman');
+  // const bowman = new Character('name', 'Bowerman');
   const result = {
     name: 'name',
     type: 'Bowerman',
@@ -15,8 +18,8 @@ test('should get character Bowman', () => {
   expect(bowman).toEqual(result);
 });
 
-test('should get character Daemon', () => {
-  const zombie = new Character('name', 'Zombie');
+test('should get character Zombie', () => {
+  const zombie = new Zombie('name', 'Zombie');
   const result = {
     name: 'name',
     type: 'Zombie',
@@ -29,20 +32,23 @@ test('should get character Daemon', () => {
   expect(zombie).toEqual(result);
 });
 
-test('should get error for variable if name < 2', () => {
-  const magician = new Character('o', 'Magician');
+test.skip('should get error for variable if name < 2', () => {
+  const magician = new Magician('o', 'Magician');
 
-  expect(magician.message).toEqual('Name character must be > 2 and < 10 symbol');
+  expect(magician.message).toThrow('Name character must be > 2 and < 10 symbol');
+  expect(magician).toThrow();
 });
 
-test('should get error for variable if name > 10', () => {
-  const magician = new Character('123456789101', 'Magician');
+test.skip('should get error for variable if name > 10', () => {
+  const magician = new Magician('123456789101', 'Magician');
 
-  expect(magician.message).toEqual('Name character must be > 2 and < 10 symbol');
+  expect(magician.message).toThrow('Name character must be > 2 and < 10 symbol');
+  expect(magician).toThrow();
 });
 
-test('should get error for type character', () => {
-  const magician = new Character('Name', 'Magician1');
+test.skip('should get error for type character', () => {
+  const magician = new Magician('Name', 'Magician1');
 
-  expect(magician.message).toEqual('Incorrect type character');
+  expect(magician.message).toThrow('Name character must be > 2 and < 10 symbol');
+  expect(magician).toThrow();
 });
